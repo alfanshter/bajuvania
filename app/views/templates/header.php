@@ -1,14 +1,3 @@
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -18,201 +7,141 @@ if (!empty($_SESSION['role'])) {
     $role = $_SESSION['role'] = 0;
 }
 
-if ($role == 2) {
-    $foto = $data['biodata'] = $this->model('SiswaModel')->getbiodata($_SESSION['id_siswa']);
-}
 
 ?>
 
 <head>
-
-
-    <meta charset="utf-8" />
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Dashboard
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <!-- <link rel="stylesheet" href="'assets/css1/bootstrap.min.css'" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" /> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="<?= base_url; ?>/assets/css/material-dashboard.css?v=2.1.2'" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?= base_url; ?>/assets/demo/demo.css'" rel="stylesheet" />
-
-    <script src="<?= base_url; ?>/assets/js/jquery.min.js"></script>
-
-    <style type="text/css">
-
-    </style>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | Bajuvania.com</title>
+    <link href="<?= base_url; ?>/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/price-range.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/animate.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/main.css" rel="stylesheet">
+    <link href="<?= base_url; ?>/assets/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= base_url; ?>/assets/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= base_url; ?>/assets/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= base_url; ?>/assets/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="<?= base_url; ?>/assets/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
+<!--/head-->
 
-
-
-<body class="">
-    <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg'">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-            <?php
-            if ($role == 0) {
-            ?>
-                <div class="logo"><a href="<?= base_url; ?>/home" class="simple-text logo-normal">
-                        PAUD ASSBIYAN
-                    </a></div>
-
-            <?php     } ?>
-
-            <?php
-            if ($role == 1) {
-            ?>
-                <div class="logo"><a href="<?= base_url; ?>/home" class="simple-text logo-normal">
-                        PAUD ASSIBYAN
-                    </a></div>
-
-            <?php     } ?>
-
-            <?php
-            if ($role == 2) {
-            ?>
-                <div class="logo"><a href="<?= base_url; ?>/siswa" class="simple-text logo-normal">
-                        PAUD ASSIBYAN
-                    </a>
-                </div>
-                <div class="sidebar-wrapper">
-                    <ul class="nav">
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/siswa">
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/fasilitaspaud">
-                                <p>Fasilitas PAUD</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            <?php     } ?>
-
-
-            <div class="sidebar-wrapper">
-                <ul class="nav">
-
-                    <?php
-                    if ($role == 0) {
-                    ?>
-                        <li class="nav-item ">
-                            <a class="nav-link" href=" <?= base_url; ?>/pendaftaran">
-                                <i class="material-icons"></i>
-                                <p>Pendaftaran</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/aktifasi">
-                                <p>Aktivasi Akun</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/login">
-                                <p>Login</p>
-                            </a>
-                        </li>
-
-                    <?php               } else if ($role == "1") {
-                    ?>
-                        <li class="nav-item ">
-                            <a class="nav-link" href=" <?= base_url; ?>/dashboard">
-                                <i class="material-icons"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/admin">
-                                <p>Admin</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/anggotasiswa">
-                                <p>Anggota Siswa</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/datapendaftaran">
-                                <p>Data Pendaftaran</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/dataguru">
-                                <p>Data Guru</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?= base_url; ?>/fasilitaspaud">
-                                <p>Fasilitas PAUD</p>
-                            </a>
-                        </li>
-
-
-
-                    <?php                     }
-                    ?>
-
-                </ul>
-            </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                    <i class="material-icons">person</i>
-                                    <p class="d-lg-none d-md-block">
-                                        Account
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <?php
-                                    if ($role == 2) {
-                                    ?>
-                                        <img src="<?= base_url; ?>/img/<?= $foto['foto']; ?>" height="200" width="200">
-
-                                    <?php } ?>
-                                    <a class="dropdown-item" href="<?= base_url; ?>/login/logout">Log out</a>
-                                    <?php
-                                    if ($role == 2) {
-                                    ?>
-                                        <a class="dropdown-item" href="<?= base_url; ?>/siswa/editfoto">Edit Foto</a>
-
-                                    <?php } ?>
-                                </div>
-                            </li>
-                        </ul>
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> 085 646 727 371</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> bajuvania.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </div>
+        <!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <?php
+                                if ($role == '1') {
+                                ?>
+                                    <li><a href="<?= base_url; ?>/riwayat"><i class="fa fa-crosshairs"></i> Riwayat Transaksi</a></li>
+                                    <li><a href="<?= base_url; ?>/transaksi"><i class="fa fa-crosshairs"></i> Transaksi</a></li>
+                                    <li><a href="<?= base_url; ?>/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="<?= base_url; ?>/login/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                <?php
+                                } else {
+                                ?>
+                                    <li><a href="<?= base_url; ?>/login"><i class="fa fa-lock"></i> Login</a></li>
+
+                                <?php
+                                }
+                                ?>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="<?= base_url; ?>/home" class="active">Home</a></li>
+                                <?php if ($role == '1') {
+                                ?>
+                                    <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                        <ul role="menu" class="sub-menu">
+                                            <li><a href="<?= base_url; ?>/home">Produk</a></li>
+                                            <li><a href="<?= base_url; ?>/transaksi">Transaksi</a></li>
+                                            <li><a href="<?= base_url; ?>/riwayat">Riwayat Transaksi</a></li>
+                                            <li><a href="<?= base_url; ?>/cart">Keranjang</a></li>
+                                        </ul>
+                                    </li>
+
+                                <?php } ?>
+                                <li><a href="<?= base_url; ?>/kontak">Kontak kami</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="search_box pull-right">
+                            <input type="text" placeholder="Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header-bottom-->
+    </header>
+    <!--/header-->
